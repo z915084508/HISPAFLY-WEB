@@ -110,13 +110,24 @@ select {
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   font-size: 14px;
   font-weight: 700;
 }
 
 .register-link {
-  color: var(--ink);
+  padding: 10px 16px;
+  border: 1px solid var(--yellow);
+  border-radius: 999px;
+  color: #111827;
+  background: var(--yellow);
+  box-shadow: inset 0 -2px 0 rgba(143, 17, 21, .16);
+}
+
+.register-link:hover {
+  color: #111827;
+  background: #ffd84a;
+  border-color: #ffd84a;
 }
 
 .account-link {
