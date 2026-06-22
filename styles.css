@@ -96,18 +96,30 @@ select {
 }
 
 .main-nav a,
-.account-link {
+.account-actions a {
   opacity: .95;
 }
 
 .main-nav a:hover,
-.account-link:hover {
+.account-actions a:hover {
   opacity: 1;
   color: var(--red);
 }
 
-.account-link {
+.account-actions {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.register-link {
+  color: var(--ink);
+}
+
+.account-link {
   padding: 10px 16px;
   border: 1px solid var(--red);
   border-radius: 999px;
@@ -774,7 +786,7 @@ h3 {
   }
 
   .main-nav,
-  .account-link {
+  .account-actions {
     display: none;
   }
 
