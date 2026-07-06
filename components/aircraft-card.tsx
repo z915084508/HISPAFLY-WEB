@@ -1,0 +1,3 @@
+import Image from "next/image";
+import { Badge } from "./badge";
+export function AircraftCard({ name, role, image, stats }: { name: string; role: string; image: string; stats: string[] }) { return <article className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-soft"><div className="relative h-56 bg-[#e9edf2]"><Image src={image} alt={name} fill className="object-cover" /></div><div className="p-7"><Badge>{role}</Badge><h3 className="mt-4 text-2xl font-bold text-brand-navy">{name}</h3><div className="mt-5 grid grid-cols-2 gap-3 border-t border-gray-100 pt-5">{stats.map((stat) => <span key={stat} className="text-sm text-gray-600">{stat}</span>)}</div></div></article>; }

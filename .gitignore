@@ -1,3 +1,8 @@
 hispafly-web-homepage.zip
 .git/
 repo-git/
+node_modules/
+.pnpm-store/
+.next/
+out/
+*.log
