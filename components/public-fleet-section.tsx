@@ -25,6 +25,20 @@ type PublicFleetResponse = {
 const publicFleetUrl =
   process.env.NEXT_PUBLIC_AOC_PUBLIC_FLEET_URL || "https://aoc.hispafly.es/api/public/fleet";
 
+const localFleetImages: Record<string, string> = {
+  A20N: "/assets/A20N%20fleet.png",
+  A319: "/assets/A319%20FLEET.png",
+  A320: "/assets/A320%20FLEET.png",
+  A321: "/assets/A321%20FLEET.png",
+  A359: "/assets/A359%20FLEET.png",
+  AT76: "/assets/ATR76%20FLEET.png",
+  B38M: "/assets/B38M%20FLEET.png",
+  B738: "/assets/B738%20FLEET.png",
+  B772: "/assets/B777%20FLEET.png",
+  B77W: "/assets/B777%20FLEET.png",
+  CRJX: "/assets/CRJX%20FLEET.png",
+};
+
 const fallbackFleet: PublicFleetAircraft[] = [
   {
     id: "a320-family",
@@ -65,7 +79,7 @@ function normalizeAircraft(items: PublicFleetAircraft[]) {
       ...item,
       title: item.displayName || item.registration || item.type || "HISPAFLY Aircraft",
       subtitle: item.registration && item.type ? `${item.registration} · ${item.type}` : item.type || item.registration,
-      imageUrl: item.imageUrl || "/assets/plane-blue.png",
+      imageUrl: (item.type && localFleetImages[item.type.toUpperCase()]) || item.imageUrl || "/assets/plane-blue.png",
       status: item.status || "Active",
     }));
 }
@@ -129,7 +143,7 @@ export function PublicFleetSection() {
             <article key={item.id} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-soft">
               <div className="relative h-56 bg-[#e9edf2]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover" />
+                <img src={item.imageUrl} alt={item.title} className="h-full w-full object-contain" onError={(event) => { event.currentTarget.src = "/assets/plane-blue.png"; }} />
                 <div className="absolute left-4 top-4">
                   <Badge>{item.status}</Badge>
                 </div>
