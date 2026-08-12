@@ -10,6 +10,7 @@ const links = [
   ["/", "Home"],
   ["/about", "About"],
   ["/operations", "Operations"],
+  ["/live-flights", "Vuelos en vivo"],
   ["/fleet", "Fleet"],
   ["/efb", "EFB"],
   ["/aoc", "AOC"],
