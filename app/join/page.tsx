@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 };
 
 const discordUrl = "https://discord.gg/2jABVPzjS";
-const vamsysUrl = "https://vamsys.io/register/2024";
+const pilotPortalUrl = "https://aoc.hispafly.es/pilot";
 
 const requirements = [
   "Interés genuino por la aviación y el aprendizaje",
   "Actitud respetuosa y colaborativa",
   "Simulador de vuelo compatible",
-  "Cuenta activa en vAMSYS",
+  "Cuenta de piloto en HISPAFLY AOC",
   "Compromiso con las normas de la comunidad",
 ];
 
@@ -35,8 +35,8 @@ const steps = [
   {
     icon: IdentificationIcon,
     n: "02",
-    title: "Regístrate en vAMSYS",
-    text: "Crea tu perfil y solicita el ingreso en HISPAFLY.",
+    title: "Accede a HISPAFLY AOC",
+    text: "Crea tu perfil de piloto y gestiona tu alta dentro de nuestro sistema.",
   },
   {
     icon: PaperAirplaneIcon,
@@ -92,8 +92,8 @@ export default function Join() {
               <Button href={discordUrl} external>
                 Join Discord
               </Button>
-              <Button href={vamsysUrl} external variant="secondary">
-                Ir a vAMSYS
+              <Button href={pilotPortalUrl} external variant="secondary">
+                Portal de pilotos
               </Button>
             </div>
           </div>
