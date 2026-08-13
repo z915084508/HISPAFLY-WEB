@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useLanguage } from "@/components/language-provider";
 
 const links = [
   ["/", "Home"],
@@ -21,6 +22,7 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { language, setLanguage } = useLanguage();
   const isHome = pathname === "/";
 
   return (
@@ -63,7 +65,9 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden h-px w-[230px] xl:block" />
+        <div className="hidden items-center gap-1 rounded-full border border-current/15 p-1 xl:flex" aria-label="Language selector">
+          {(["es", "en"] as const).map((code) => <button key={code} type="button" onClick={() => setLanguage(code)} aria-pressed={language === code} className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase transition ${language === code ? "bg-brand-red text-white" : "opacity-60 hover:opacity-100"}`}>{code}</button>)}
+        </div>
 
         <button
           type="button"
@@ -79,6 +83,7 @@ export function Navbar() {
       {open && (
         <div className="border-t border-white/10 bg-brand-navy xl:hidden">
           <div className="container-site flex flex-col py-5">
+            <div className="mb-4 flex gap-2" aria-label="Language selector">{(["es", "en"] as const).map((code) => <button key={code} type="button" onClick={() => setLanguage(code)} aria-pressed={language === code} className={`rounded-full px-4 py-2 text-xs font-bold uppercase ${language === code ? "bg-brand-red text-white" : "bg-white/10 text-white/70"}`}>{code}</button>)}</div>
             {links.map(([href, label]) => (
               <Link
                 key={href}
