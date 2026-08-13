@@ -16,6 +16,7 @@ const columns = [
       ["/operations", "Operations"],
       ["/efb", "Electronic Flight Bag"],
       ["/aoc", "AOC"],
+      ["/ecosystem", "Ecosystem"],
     ],
   },
   {
